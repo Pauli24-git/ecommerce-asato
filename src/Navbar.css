@@ -1,0 +1,28 @@
+h1 {
+    color:blueviolet;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color:cornflowerblue;
+    padding: 15px;
+    color: antiquewhite;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: aquamarine;
+    color: white;
+}
+
+img {
+    height: 50px;
+}
