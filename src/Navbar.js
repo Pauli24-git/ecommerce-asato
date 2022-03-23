@@ -1,19 +1,24 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "./imagenes/logoTienda.png"
+import {Cart} from "./componentes/CartWidget"
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+    console.log(props.links);
     return (
         <>
         <h1>NOMBRE TIENDA ONLINE</h1>
-        <nav>
-            <img src={logo}></img>
-            <a href="#">Sobre Nosotros</a>
-            <a href="#">Productos</a>
-            <a href="#">¿Como Comprar?</a>
-            <a href="#">Contacto</a>
-        </nav>
+         <nav>
+             {props.links.map((element, indice) => {
+                 return (
+                     <a key={indice} href={element.tag}>
+                         {element.link}
+                     </a>
+                 );
+             })}
+                  <Cart />
+         </nav>
+        
         </>
     )
 }
