@@ -1,26 +1,26 @@
-import React from "react";
-import "./Navbar.css";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 import {Cart} from "./componentes/CartWidget"
+import {Item} from "./componentes/ItemListContainer"
 
-
-const Navbar = (props) => {
-    console.log(props.links);
-    return (
-        <>
-        <h1>NOMBRE TIENDA ONLINE</h1>
-         <nav>
-             {props.links.map((element, indice) => {
-                 return (
-                     <a key={indice} href={element.tag}>
-                         {element.link}
-                     </a>
-                 );
-             })}
-                  <Cart />
-         </nav>
-        
-        </>
-    )
+export default function ButtonAppBar() {
+  return (
+    <>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+         <Cart />
+       
+          <Button color="inherit">Inicio</Button>
+          <Button color="inherit">Productos</Button>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+       <Item mensaje="Bienvenido"/>
+       </>
+  );
 }
-
-export default Navbar;
