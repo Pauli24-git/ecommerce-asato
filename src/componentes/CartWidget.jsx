@@ -1,9 +1,8 @@
-import React from "react";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import IconButton from '@mui/material/IconButton';
+import * as React from "react";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-
-export const Cart = () => {
+export default function CartWidget() {
   return (
     <IconButton
       size="large"
@@ -14,5 +13,5 @@ export const Cart = () => {
     >
       <ShoppingCartIcon />
     </IconButton>
-  )
+  );
 }

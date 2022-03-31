@@ -1,14 +1,13 @@
 import './App.css';
+import  ItemListContainer  from "./componentes/ItemListContainer";
 import Navbar from "./Navbar";
-import { Item } from "./componentes/ItemListContainer";
-import ItemCount from './componentes/ItemCount';
+
 
 const App = () => {
   return (
     <>
       <Navbar/>
-      <Item/>
-      <ItemCount stock={10} inicial={1}/>
+      <ItemListContainer/>
     </>
   );
 }
