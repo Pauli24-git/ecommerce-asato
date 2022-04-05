@@ -6,25 +6,25 @@ export default function ItemListContainer() {
     {
       id: "3444AX34",
       title: "Pantalon",
-      price: 1400,
-      pictureUrl: "https://source.unsplash.com/random/300x200/?pant",
+      price: 2400,
+      pictureUrl: "https://source.unsplash.com/random/300x200/?jeans",
     },
     {
       id: "3615IC99",
       title: "Remera manga corta",
-      price: 700,
+      price: 1300,
       pictureUrl: "https://source.unsplash.com/random/300x200/?shirt",
     },
     {
       id: "4543FC21",
-      title: "Remera mangas cocidas",
-      price: 900,
+      title: "Remera manga larga",
+      price: 1900,
       pictureUrl: "https://source.unsplash.com/random/300x200/?tshirt",
     },
     {
       id: "5454DD22",
-      title: "Camperon Miley Cyrus sacandose fotos con gendarmeria",
-      price: 5699,
+      title: "Camperon invierno - otoño",
+      price: 7699,
       pictureUrl: "https://source.unsplash.com/random/300x200/?hoodie",
     },
   ];
@@ -48,30 +48,6 @@ export default function ItemListContainer() {
   }, []);
 
   return (
-    // <>
-    //   <Stack spacing={1}>
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //     <Skeleton variant="circular" width={40} height={40} />
-    //     <Skeleton variant="rectangular" width={210} height={118} />
-    //   </Stack>
-    // </>
     <ItemList productos={productos}></ItemList>
   );
 }

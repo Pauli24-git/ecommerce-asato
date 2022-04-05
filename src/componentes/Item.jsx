@@ -4,9 +4,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import ItemCount from "./ItemCount";
+import ItemDetailContainer from "./ItemDetailContainer";
+
 
 export default function Item({ id, title, price, image }) {
-    const onAdd = () =>{alert("Agregado")}
+  const onAdd = () => { alert("Agregado") }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -19,11 +21,16 @@ export default function Item({ id, title, price, image }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          "Articulo: " {title}
-          "Precio: " {price}
+          Articulo:  {title}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          Precio: $ {price}
         </Typography>
       </CardContent>
-      <ItemCount stock={20} inicial={1} onAdd ={onAdd} />
+      <ItemDetailContainer />
+      <CardContent>
+      </CardContent>
+      <ItemCount stock={20} inicial={1} onAdd={onAdd} />
     </Card>
   );
 }
