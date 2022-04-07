@@ -1,8 +1,8 @@
 import * as React from "react";
 import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CheckroomIcon from '@mui/icons-material/Checkroom';
 
-export const CartWidget = () => {
+export const MainLogo = () => {
   return (
     <IconButton
       size="large"
@@ -11,7 +11,7 @@ export const CartWidget = () => {
       aria-label="menu"
       sx={{ mr: 2 }}
     >
-      <ShoppingCartIcon />
+      <CheckroomIcon sx={{ fontSize: 60 }}/>
     </IconButton>
   );
 }

@@ -1,53 +1,49 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
-import { CardActions } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Collapse from "@mui/material/Collapse";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import  ItemCount  from "./ItemCount";
 
 
-export default function ItemDetail({prod}){
-    const [expanded, setExpanded] = useState(false);
+export const ItemDetail = ({id, desc, image, precio, stock}) =>{
 
-    const ExpandMore = styled((props) => {
-      const { expand, ...other } = props;
-      return <IconButton {...other} />;
-    })(({ theme, expand }) => ({
-      transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-      marginLeft: "auto",
-      transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-      }),
-    }));
-  
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
+    console.log(id);
+
     return (
-    <CardContent>
-    <CardActions>
-      <Typography variant="h6">Mas informacion</Typography>
-      <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="show more"
-      >
-        <ExpandMoreIcon />
-      </ExpandMore>
-    </CardActions>
-    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Card sx={{ maxWidth: 800, maxheight:400, m: 5 }}>
+      <CardMedia
+        component="img"
+        alt="producto"
+        spacing="10"
+        height="300"
+        src={image}
+      />
       <CardContent>
-        <Typography paragraph>
-          Descripcion: {prod.desc}
-        </Typography>
-        <Typography paragraph>
-          Precio: {prod.precio}
+        <Typography gutterBottom variant="p" component="div">
+          Articulo: {desc}
         </Typography>
       </CardContent>
-    </Collapse>
-  </CardContent>
+      <CardContent>
+        <Typography gutterBottom variant="p" component="div">
+          precio: {precio}
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <Typography gutterBottom variant="p" component="div">
+          Id: {id}
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <Typography gutterBottom variant="p" component="div">
+          Stock: {stock}
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <ItemCount stock={stock} inicial={1} />
+      </CardContent>
+    </Card>
   )
 }

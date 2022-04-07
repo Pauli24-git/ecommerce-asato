@@ -3,15 +3,17 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import ItemCount from "./ItemCount";
-import ItemDetailContainer from "./ItemDetailContainer";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
-
-export default function Item({ id, title, price, image }) {
-  const onAdd = () => { alert("Agregado") }
+export const Item = ({ id, title, image }) => {
+  const route = "/product/" + id;
+  const onAdd = () => {
+    alert("Agregado");
+  };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, m: 5 }}>
       <CardMedia
         component="img"
         alt="producto"
@@ -20,17 +22,12 @@ export default function Item({ id, title, price, image }) {
         src={image}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Articulo:  {title}
-        </Typography>
-        <Typography gutterBottom variant="h5" component="div">
-          Precio: $ {price}
+        <Typography gutterBottom variant="p" component="div">
+          Articulo: {title}
         </Typography>
       </CardContent>
-      <ItemDetailContainer />
-      <CardContent>
-      </CardContent>
-      <ItemCount stock={20} inicial={1} onAdd={onAdd} />
+      <Button component={Link} to={route}> Mas informacion</Button>
     </Card>
+
   );
 }
