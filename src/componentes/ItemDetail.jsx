@@ -5,15 +5,21 @@ import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import  ItemCount  from "./ItemCount";
+import ItemCount from "./ItemCount";
 
 
-export const ItemDetail = ({id, desc, image, precio, stock}) =>{
+export const ItemDetail = ({ id, desc, image, precio, stock }) => {
 
-    console.log(id);
+  console.log(id);
 
-    return (
-      <Card sx={{ maxWidth: 800, maxheight:400, m: 5 }}>
+  const [showBuyOption, setshowBuyOption] = useState(false);
+
+  const showPurchase = () => {
+    setshowBuyOption(!showBuyOption);
+  };
+
+  return (
+    <Card sx={{ maxWidth: 800, maxheight: 400, m: 5 }}>
       <CardMedia
         component="img"
         alt="producto"
@@ -42,7 +48,12 @@ export const ItemDetail = ({id, desc, image, precio, stock}) =>{
         </Typography>
       </CardContent>
       <CardContent>
-        <ItemCount stock={stock} inicial={1} />
+        <ItemCount
+          stock={stock}
+          inicial={1}
+          onAdd={showPurchase}
+          showBuyOption={showBuyOption}
+        />
       </CardContent>
     </Card>
   )

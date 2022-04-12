@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
-export default function ItemCount({ stock, inicial, onAdd }) {
+export default function ItemCount({ stock, inicial, onAdd, showBuyOption }) {
   const [contador, setContador] = useState(inicial);
 
   const incrementarContador = () => {
@@ -22,38 +22,49 @@ export default function ItemCount({ stock, inicial, onAdd }) {
     }
   };
 
-  const ejecutaOnAdd = () => {
+  const handlerClickAgregar = () => {
     onAdd();
   };
 
   return (
     <Card sx={{ maxWidth: 290 }}>
-      <CardActions>
-        <IconButton
-          size="large"
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-          onClick={reducirContador}
-        >
-          <IndeterminateCheckBoxRoundedIcon />
-        </IconButton>
-        <Typography>{contador}</Typography>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-          onClick={incrementarContador}
-        >
-          <AddBoxRoundedIcon />
-        </IconButton>
-        <Button variant="contained" onClick={ejecutaOnAdd}>
-          Agregar
-        </Button>
-      </CardActions>
+   {!showBuyOption ? (
+        <>
+          <CardActions>
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={reducirContador}
+            >
+              <IndeterminateCheckBoxRoundedIcon />
+            </IconButton>
+            <Typography>{contador}</Typography>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={incrementarContador}
+            >
+              <AddBoxRoundedIcon />
+            </IconButton>
+          </CardActions>
+
+          <CardActions>
+            <Button variant="contained" onClick={handlerClickAgregar}>
+              Agregar
+            </Button>
+          </CardActions>
+        </>
+      ) : (
+        <CardActions>
+          <Button variant="contained">Comprar</Button>
+        </CardActions>
+      )}
     </Card>
   );
-}
+};
