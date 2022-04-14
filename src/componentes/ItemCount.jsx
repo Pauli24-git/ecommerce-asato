@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import Typography from "@mui/material/Typography";
@@ -6,9 +6,12 @@ import IndeterminateCheckBoxRoundedIcon from "@mui/icons-material/IndeterminateC
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
+import CustomProvider,{context} from "./CartContext"
 
-export default function ItemCount({ stock, inicial, onAdd, showBuyOption }) {
+export default function ItemCount({ stock, inicial, onAdd, art, showBuyOption }) {
   const [contador, setContador] = useState(inicial);
+
+  const {addArticulo} = useContext(context);
 
   const incrementarContador = () => {
     if (contador < stock) {
@@ -24,6 +27,7 @@ export default function ItemCount({ stock, inicial, onAdd, showBuyOption }) {
 
   const handlerClickAgregar = () => {
     onAdd();
+    addArticulo(art, contador);
   };
 
   return (

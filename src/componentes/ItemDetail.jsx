@@ -10,7 +10,7 @@ import ItemCount from "./ItemCount";
 
 export const ItemDetail = ({ id, desc, image, precio, stock }) => {
 
-  console.log(id);
+  const articulo = {artId:id, artDesc:desc, artPrecio:precio};
 
   const [showBuyOption, setshowBuyOption] = useState(false);
 
@@ -50,6 +50,7 @@ export const ItemDetail = ({ id, desc, image, precio, stock }) => {
       <CardContent>
         <ItemCount
           stock={stock}
+          art={articulo}
           inicial={1}
           onAdd={showPurchase}
           showBuyOption={showBuyOption}
