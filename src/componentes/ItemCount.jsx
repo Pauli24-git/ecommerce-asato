@@ -6,12 +6,14 @@ import IndeterminateCheckBoxRoundedIcon from "@mui/icons-material/IndeterminateC
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import CustomProvider,{context} from "./CartContext"
+import { context } from "./CartContext"
+import { Link } from "react-router-dom";
 
 export default function ItemCount({ stock, inicial, onAdd, art, showBuyOption }) {
+
   const [contador, setContador] = useState(inicial);
 
-  const {addArticulo} = useContext(context);
+  const { addArticulo } = useContext(context);
 
   const incrementarContador = () => {
     if (contador < stock) {
@@ -32,7 +34,7 @@ export default function ItemCount({ stock, inicial, onAdd, art, showBuyOption })
 
   return (
     <Card sx={{ maxWidth: 290 }}>
-   {!showBuyOption ? (
+      {!showBuyOption ? (
         <>
           <CardActions>
             <IconButton
@@ -66,7 +68,9 @@ export default function ItemCount({ stock, inicial, onAdd, art, showBuyOption })
         </>
       ) : (
         <CardActions>
-          <Button variant="contained">Comprar</Button>
+          <Link to="/Cart">
+            <Button variant="contained">Comprar</Button>
+          </Link>
         </CardActions>
       )}
     </Card>

@@ -7,25 +7,41 @@ const { Provider } = context;
 const CustomProvider = ({ children }) => {
 
     const [articulosCarrito, setArticulosCarrito] = useState([])
+    const [precioTotal, setPrecioTotal] = useState(0)
 
     const addArticulo = (articulo, cantidad) => {
+
         const arrayAux = articulosCarrito;
 
-        // arrayAux.map((art,indice) => {
-        //     if (art.id == articulo.artId) {
-        //         art.cant += cantidad;
-        //     }
-        //     return
-        // })
+        const ElementoBuscado = (art) => art.id == articulo.artId;
+        const ubicacion = arrayAux.findIndex(ElementoBuscado)
 
-        arrayAux.push({ id: articulo.artId, desc: articulo.artDesc, precio: articulo.artPrecio, cant: cantidad });
+        if (ubicacion == -1) {
+            arrayAux.push({ id: articulo.artId, desc: articulo.artDesc, precio: articulo.artPrecio, cant: cantidad });
+        }else{
+
+            arrayAux[ubicacion].cant += cantidad;
+        }
+
+
+        //setearTotales(arrayAux);
         setArticulosCarrito(arrayAux);
-        console.log(articulosCarrito);
         
     }
-    // const deleteArticulo = () => { }
 
+    const deleteArticulo = (idArticulo) => {
 
+        const arrayAux = articulosCarrito;
+
+        const ElementoBuscado = (art) => art.id == idArticulo;
+        const ubicacion = arrayAux.findIndex(ElementoBuscado)
+
+        arrayAux.splice(ubicacion,1);
+
+        //setearTotales(arrayAux);
+        setArticulosCarrito(arrayAux);
+        
+    }
 
     return (
         <Provider value={{ articulosCarrito, addArticulo }}>{children}</Provider>

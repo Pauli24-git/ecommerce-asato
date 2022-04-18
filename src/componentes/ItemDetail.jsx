@@ -59,3 +59,9 @@ export const ItemDetail = ({ id, desc, image, precio, stock }) => {
     </Card>
   )
 }
+
+//ItemCount(stock,articulo,showBuyOption); //lamada a la funcion
+
+// function ItemCount(stockActual, art, inicial, mostrarOpcion){
+
+// }
