@@ -10,7 +10,7 @@ import ItemCount from "./ItemCount";
 
 export const ItemDetail = ({ id, desc, image, precio, stock }) => {
 
-  const articulo = {artId:id, artDesc:desc, artPrecio:precio};
+  const articulo = {artId:id, artDesc:desc, artPrecio:+precio};
 
   const [showBuyOption, setshowBuyOption] = useState(false);
 

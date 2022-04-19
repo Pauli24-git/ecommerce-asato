@@ -15,7 +15,7 @@ export const ItemDetailContainer = () =>{
         title: "Pantalon",
         category: "Pantalones",
         pictureUrl: "https://source.unsplash.com/random/300x200/?pant",
-        precio: "$3000",
+        precio: "3000",
         stock: 19
       },
       {
@@ -23,7 +23,7 @@ export const ItemDetailContainer = () =>{
         title: "Remera manga corta",
         category: "Remeras",
         pictureUrl: "https://source.unsplash.com/random/300x200/?shirt",
-        precio: "$5600",
+        precio: "5600",
         stock: 10
       },
       {
@@ -31,7 +31,7 @@ export const ItemDetailContainer = () =>{
         title: "Remera mangas cocidas",
         category: "Remeras",
         pictureUrl: "https://source.unsplash.com/random/300x200/?tshirt",
-        precio: "$2000",
+        precio: "2000",
         stock: 20
       },
       {
@@ -39,7 +39,7 @@ export const ItemDetailContainer = () =>{
         title: "Camperon",
         category: "Hoodies",
         pictureUrl: "https://source.unsplash.com/random/300x200/?hoodie",
-        precio: "$15000",
+        precio: "15000",
         stock: 3
       },
     ];
