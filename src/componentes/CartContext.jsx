@@ -50,7 +50,7 @@ const CustomProvider = ({ children }) => {
         
         productos.forEach(prod => {
             cantidadTotal += prod.cant;
-            precioTotal += prod.precio;
+            precioTotal += prod.precio * prod.cant;
         });
 
         setPrecioTotal(precioTotal);
