@@ -16,7 +16,7 @@ export const ItemDetailContainer = () =>{
         category: "Pantalones",
         pictureUrl: "https://source.unsplash.com/random/300x200/?pant",
         precio: "3000",
-        stock: 19
+        stock: 20
       },
       {
         id: "3615IC99",

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { getDocs, collection, query, where } from "firebase/firestore"
 import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
+import { db } from "../componentes/Firebase/firebase"
 
 export const ItemListContainer = () => {
   const productosRecibidosBackEnd = [
@@ -42,17 +44,44 @@ export const ItemListContainer = () => {
   });
 
   useEffect(() => {
-    promesa
-      .then((prods) => {
-        if (categoryId) {
-          setProductos( prods.filter(producto => producto.category == categoryId));
-        } else {
-          setProductos(prods);
-        }
+    const productsCollection = collection(db, "productos")
+    const q = query(productsCollection, 
+      where("category", "==", "pantalones"), 
+      where("precio", ">", "100"));
+    getDocs(q)
+      .then((result) => {
+        const docs = result.docs;
+        const lista = docs.map(producto => {
+          const id = producto.id
+          const product = {
+            id,
+            ...producto.data()
+          }
+          return product;
+        })
+        console.log(lista)
+        setProductos(lista)
       })
-      .catch(() => {
-        console.log("Error, solicitud rechazada");
-      });
+      .catch(error => {console.log(error)})
+      .finally(()=>{
+        setLoading(false);
+      })
+
+
+
+    /*
+        promesa
+          .then((prods) => {
+            if (categoryId) {
+              setProductos( prods.filter(producto => producto.category == categoryId));
+            } else {
+              setProductos(prods);
+            }
+          })
+          .catch(() => {
+            console.log("Error, solicitud rechazada");
+          });
+          */
   }, [categoryId]);
   return <ItemList productos={productos}></ItemList>;
 };
