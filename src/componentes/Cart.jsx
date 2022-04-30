@@ -16,16 +16,42 @@ export const Cart = () => {
   const [mostrarVolverAlInicio, setmostrarVolverAlInicio] = useState(true)
   const [idVenta, setIdVenta] = useState(0)
 
-  const comprador = {
-    nombre: "Juan",
-    apellido: "Perez",
-    email: "juanperez@gmail.com"
-  };
+  const [nombre, setNombre] = useState()
+  const [apellido, setApellido] = useState()
+  const [email, setEmail] = useState()
+
+  const cargarNombre = (e) => {
+    setNombre(e.target.value);
+  }
+
+  const cargarApellido = (e) => {
+    setApellido(e.target.value);
+  }
+
+  const cargarEmail = (e) => {
+    setEmail(e.target.value);
+  }
 
   const finalizarCompra = () => {
+    debugger
+    // if (nombre !== "" && apellido !== "" && email !== "") {
+    //   const ventaCollection = collection(db, "ventas");
+    //   addDoc(ventaCollection, {
+    //     comprador:{Nombre:nombre,Apellido:apellido,Email:email},
+    //     items: articulosCarrito,
+    //     date: serverTimestamp(),
+    //     total: precioTotal,
+    //   }).then((result) => {
+    //     setIdVenta(result.id);
+    //   });
+    // }else{
+    //   alert("Debe completar todos los campos.")
+    // }
+    const comp = {Nombre:nombre,Apellido:apellido,Email:email};
+
     const ventaCollection = collection(db, "ventas");
     addDoc(ventaCollection, {
-      comprador,
+      comprador: comp,
       items: articulosCarrito,
       date: serverTimestamp(),
       total: precioTotal,
@@ -41,7 +67,6 @@ export const Cart = () => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
-
 
   const handlerClickEliminar = (id) => {
     deleteArticulo(id);
@@ -82,9 +107,10 @@ export const Cart = () => {
             noValidate
             autoComplete="off"
           >
-            <TextField id="outlined-basic" label="Ingrese su nombre" variant="outlined" />
-            <TextField id="outlined-basic" label="Ingrese su apellido" variant="outlined" />
-            <TextField id="outlined-basic" label="Ingrese su email" variant="outlined" />
+            <TextField id="nombre"  value={nombre} label="Ingrese su nombre" variant="outlined" onBlur={cargarNombre} />
+            <TextField id="apellido" value={apellido} label="Ingrese su apellido" variant="outlined" onBlur={cargarApellido} />
+            <TextField id="email" value={email} label="Ingrese su email" variant="outlined" onBlur={cargarEmail} />
+
             <Item><Button variant="contained" onClick={() => finalizarCompra()} >Finalizar Compra</Button></Item>
 
           </Box>
