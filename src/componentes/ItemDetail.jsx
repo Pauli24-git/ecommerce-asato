@@ -60,7 +60,7 @@ export const ItemDetail = ({ id, desc, image, precio, stock }) => {
   )
 }
 
-//ItemCount(stock,articulo,showBuyOption); //lamada a la funcion
+//ItemCount(stock,articulo,showBuyOption); //llamada a la funcion
 
 // function ItemCount(stockActual, art, inicial, mostrarOpcion){
 

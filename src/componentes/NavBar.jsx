@@ -10,9 +10,10 @@ import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   const categories = [
-    { name: "Remeras", route: "categories/remeras", id:1 },
-    { name: "Pantalones", route: "categories/pantalones", id:2 },
-    { name: "Hoodies", route: "categories/Hoodies", id:3 },
+    { name: "Remeras", route: "categories/remeras", id: 1 },
+    { name: "Pantalones", route: "categories/pantalones", id: 2 },
+    { name: "Hoodies", route: "categories/Hoodies", id: 3 },
+    { name: "Camisas", route: "categories/camisas", id: 4 },
   ];
 
   return (
@@ -23,10 +24,10 @@ export const NavBar = () => {
             <MainLogo />
           </NavLink>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Ecommerce Asato Paula
+            Ecommerce Asato Paula
           </Typography>
-          {categories.map((links)=>{
-                        return(<Button key={links.id} color="inherit" component={NavLink} to={links.route}>{links.name}</Button>)
+          {categories.map((links) => {
+            return (<Button key={links.id} color="inherit" component={NavLink} to={links.route}>{links.name}</Button>)
           })}
           <CartWidget />
         </Toolbar>

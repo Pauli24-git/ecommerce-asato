@@ -11,28 +11,27 @@ export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
   const [loading, setLoading] = useState(true);
 
-const { productId } = useParams();
+  const { productId } = useParams();
   useEffect(() => {
 
     const productsCollection = collection(db, "productos");
     const refDoc = doc(productsCollection, productId);
     getDoc(refDoc)
-      .then((result)=>{
-
+      .then((result) => {
         setProducto(result.data());
-      })      
+      })
       .catch(error => { console.log(error) })
       .finally(() => {
         setLoading(false);
       })
-    },[productId])
- 
+  }, [productId])
+
   return (
     <>{loading ? (
       <LoadingScreen />
-      ):(
+    ) : (
       <ItemDetail id={productId} desc={producto.title} image={producto.pictureUrl} precio={producto.precio} stock={producto.stock} />
-      )};
-      </>
-      );
+    )};
+    </>
+  );
 };
