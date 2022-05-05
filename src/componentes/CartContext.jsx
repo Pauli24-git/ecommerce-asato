@@ -44,6 +44,12 @@ const CustomProvider = ({ children }) => {
         
     }
 
+    const vaciarCarrito = () =>{
+        setArticulosCarrito([]);
+        setPrecioTotal(0);
+        setTotalArticulos(0);
+    }
+
     const setearTotales = (productos) => {
         let cantidadTotal = 0;
         let precioTotal = 0;
@@ -58,7 +64,7 @@ const CustomProvider = ({ children }) => {
     }
 
     return (
-        <Provider value={{ articulosCarrito, addArticulo, totalArticulos, precioTotal, deleteArticulo }}>{children}</Provider>
+        <Provider value={{ articulosCarrito, addArticulo, totalArticulos, precioTotal, deleteArticulo, vaciarCarrito }}>{children}</Provider>
     )
 }
 

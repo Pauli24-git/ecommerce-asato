@@ -1,18 +1,14 @@
 import * as React from "react";
-import IconButton from "@mui/material/IconButton";
-import CheckroomIcon from '@mui/icons-material/Checkroom';
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
-export const IdPurchase = ({id}) => {
+export const IdPurchase = ({ id }) => {
   return (
-    <IconButton
-      size="large"
-      edge="start"
-      color="inherit"
-      aria-label="menu"
-      sx={{ mr: 2 }}
-    >
-      <CheckroomIcon sx={{ fontSize: 400 }}/>
+    <>
       <h1>El id de su compra es {id}</h1>
-    </IconButton>
+      <Link to="/">
+        <Button variant="contained">Volver al inicio</Button>
+      </Link>
+    </>
   );
-}
+};
