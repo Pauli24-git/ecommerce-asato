@@ -27,8 +27,8 @@ export const Item = ({ id, title, image }) => {
             <CardMedia
               component="img"
               alt="producto"
-              spacing="10"
-              height="140"
+              spacing="20"
+              height="600"
               src={image}
             />
             <CardContent>
@@ -36,7 +36,7 @@ export const Item = ({ id, title, image }) => {
                 Articulo: {title}
               </Typography>
             </CardContent>
-            <Button component={Link} to={route}> Mas informacion</Button>
+            <Button component={Link} to={route}> Mas información</Button>
           </Card>
         </Grid>
       </Grid>
