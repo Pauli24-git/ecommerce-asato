@@ -12,7 +12,7 @@ const CustomProvider = ({ children }) => {
 
     const addArticulo = (articulo, cantidad) => {
 
-        const arrayAux = articulosCarrito;
+        const arrayAux = articulosCarrito.slice();
 
         const ElementoBuscado = (art) => art.id === articulo.artId;
         const ubicacion = arrayAux.findIndex(ElementoBuscado)
